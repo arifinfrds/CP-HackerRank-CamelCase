@@ -11,10 +11,14 @@ public class Solution {
   // Complete the camelcase function below.
   static int camelcase(String s) {
     int count = 0;
-    for (String w : s.split("(?<!(^|[A-Z0-9]))(?=[A-Z0-9])|(?<!^)(?=[A-Z][a-z])")) {
-      count += 1;
+    char[] chars = s.toCharArray();
+
+    for (int i = 0; i < chars.length; i++) {
+      if (Character.isUpperCase(chars[i])) {
+        count += 1;
+      }
     }
-    return count;
+    return count + 1;
   }
 
   private static final Scanner scanner = new Scanner(System.in);
